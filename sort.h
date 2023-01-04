@@ -46,6 +46,12 @@ void bubble_sort(int *array, size_t size);
 /** insertion_sort_list performs the insertion sort on  an int list */
 void insertion_sort_list(listint_t **list);
 
+/** TODO */
+void selection_sort(int *array, size_t size);
+
+/** TODO */
+void quick_sort(int *array, size_t size);
+
 /** --- --- Sorting functions -- --- --- */
 
 /** +++ +++ Aux_functions +++ +++ +++ */
