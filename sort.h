@@ -43,6 +43,16 @@ void print_list(const listint_t *list);
 /** bubble_sort performs a bubble sort on an int list */
 void bubble_sort(int *array, size_t size);
 
+/** insertion_sort_list performs the insertion sort on  an int list */
+void insertion_sort_list(listint_t **list);
+
 /** --- --- Sorting functions -- --- --- */
+
+/** +++ +++ Aux_functions +++ +++ +++ */
+
+/** swaps two linked list nodes */
+void swap_nodes(listint_t *to_right, listint_t *to_left);
+
+/** --- --- Aux_functions --- --- --- */
 
 #endif
