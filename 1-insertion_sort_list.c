@@ -13,14 +13,17 @@ void insertion_sort_list(listint_t **list)
 	{
 		j = (*list)->next->n;
 		i = (*list)->n;
-		printf("%d > %d\n", i, j);
-		while ((*list)->prev && i > j)
+
+		while (*list && i > j)
 		{
-			printf("true\n");
 			swap_nodes(*list, (*list)->next);
-			*list = (*list)->prev;
+			if ((*list)->prev->prev)
+				*list = (*list)->prev->prev;
+			else if ((*list)->prev)
+				*list = (*list)->prev;
 			i = (*list)->n;
 		}
+
 	}
 	while((*list)->prev)
 		*list = (*list)->prev;
