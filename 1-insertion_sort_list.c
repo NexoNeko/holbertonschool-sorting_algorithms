@@ -8,8 +8,12 @@
 void insertion_sort_list(listint_t **list)
 {
 	int j, i;
-	listint_t *node = *list;
+	listint_t *node;
 
+	if (!list)
+		return;
+
+	node = *list;
 	for (; (*list)->next; *list = (*list)->next)
 	{
 		j = (*list)->next->n;
@@ -36,8 +40,8 @@ void insertion_sort_list(listint_t **list)
 /**
 * swap_nodes - swaps two nodes in a doubly linked list
 *
-* @to_right - node on the left that's going right| R | >> | L |
-* @to_left - node on the right that's going left | R | << | L |
+* @to_right: node on the left that's going right| R | >> | L |
+* @to_left: node on the right that's going left | R | << | L |
 */
 void swap_nodes(listint_t *to_right, listint_t *to_left)
 {
