@@ -8,6 +8,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	int j, i;
+	listint_t *node = *list;
 
 	for (; (*list)->next; *list = (*list)->next)
 	{
@@ -22,6 +23,9 @@ void insertion_sort_list(listint_t **list)
 			else if ((*list)->prev)
 				*list = (*list)->prev;
 			i = (*list)->n;
+			while(node->prev)
+				node = node->prev;
+			print_list(node);
 		}
 
 	}
