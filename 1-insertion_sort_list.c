@@ -7,22 +7,21 @@
 */
 void insertion_sort_list(listint_t **list)
 {
-		int j, i, key;
+	int j, i;
 
-		for (; (*list)->next; *list = (*list)->next)
+	for (; (*list)->next; *list = (*list)->next)
+	{
+		j = (*list)->next->n;
+		i = (*list)->n;
+		printf("%d > %d\n", i, j);
+		while ((*list)->prev && i > j)
 		{
-			j = (*list)->next->n;
-			key = j;
-			i = (*list)->n;
-			printf("%d > %d\n", i, j);
-				while ((*list)->prev && i > key)
-				{
-					printf("true\n");
-					swap_nodes(*list, (*list)->next);
-					*list = (*list)->prev->next;
-					i = (*list)->prev->n;
-				}
-		}
-		while((*list)->prev)
+			printf("true\n");
+			swap_nodes(*list, (*list)->next);
 			*list = (*list)->prev;
+			i = (*list)->n;
+		}
+	}
+	while((*list)->prev)
+		*list = (*list)->prev;
 }
