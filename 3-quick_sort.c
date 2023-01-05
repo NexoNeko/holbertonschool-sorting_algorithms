@@ -1,8 +1,8 @@
 #include "sort.h"
 
 void swap_int(int *a, int *b);
-void fun_aux_quicksort(int *array, int low, int high);
-int fun_partition_lomuto(int *A, int low, int high);
+void fun_aux_quicksort(int *array, int low, int high, int size);
+int fun_partition_lomuto(int *array, int low, int high, int size);
 
 void quick_sort(int *array, size_t size)
 {
@@ -12,38 +12,41 @@ void quick_sort(int *array, size_t size)
 	if (size == 2)
 	{
 		swap_int(&array[0], &array[1]);
+		print_array(array, size);
 		return;
 	}
 
-	fun_aux_quicksort(array, 0, size);
+	fun_aux_quicksort(array, 0, size, size);
 }
 
-void fun_aux_quicksort(int *array, int low, int high)
+void fun_aux_quicksort(int *array, int low, int high, int size)
 {
 	int index;
 
+
 	if (low < high)
 	{
-		index = fun_partition_lomuto(array, low, high);
-		fun_aux_quicksort(array, low, index - 1);
-		fun_aux_quicksort(array, index + 1, high);
+		index = fun_partition_lomuto(array, low, high, size);
+		fun_aux_quicksort(array, low, index - 1, size);
+		fun_aux_quicksort(array, index + 1, high, size);
 	}
 }
 
-int fun_partition_lomuto(int *array, int low, int high)
+int fun_partition_lomuto(int *array, int low, int high, int size)
 {
 	int pivot = array[high];
 	int j, i = low - 1;
 
 	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
 			swap_int(&array[i], &array[j]);
 		}
 	}
 	swap_int(&array[i + 1], &array[high]);
+	print_array(array, size);
 
 	return(i);
 }
