@@ -46,10 +46,10 @@ void bubble_sort(int *array, size_t size);
 /** insertion_sort_list performs the insertion sort on  an int list */
 void insertion_sort_list(listint_t **list);
 
-/** TODO */
+/** selection_sort - slowly sorts a list, low space usage */
 void selection_sort(int *array, size_t size);
 
-/** TODO */
+/** Quickly sorts a list, high space usage. */
 void quick_sort(int *array, size_t size);
 
 /** --- --- Sorting functions -- --- --- */
