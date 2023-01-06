@@ -16,13 +16,12 @@ void quick_sort(int *array, size_t size)
 		return;
 	}
 
-	fun_aux_quicksort(array, 0, size, size);
+	fun_aux_quicksort(array, 0, size - 1, size);
 }
 
 void fun_aux_quicksort(int *array, int low, int high, int size)
 {
 	int index;
-
 
 	if (low < high)
 	{
@@ -35,18 +34,21 @@ void fun_aux_quicksort(int *array, int low, int high, int size)
 int fun_partition_lomuto(int *array, int low, int high, int size)
 {
 	int pivot = array[high];
-	int j, i = low - 1;
+	int j, i = low;
 
-	for (j = low; j <= high - 1; j++)
+	for (j = low; j < high; ++j)
 	{
 		if (array[j] < pivot)
 		{
-			i++;
-			swap_int(&array[i], &array[j]);
+			swap_int(&array[j], &array[i]);
+			if (array[j] != array[i])
+				print_array(array, size);
+			++i;
 		}
 	}
-	swap_int(&array[i + 1], &array[high]);
-	print_array(array, size);
+	swap_int(&array[i], &array[high]);
+	if (array[high] != array[i])
+		print_array(array, size);
 
 	return(i);
 }
@@ -67,4 +69,3 @@ void swap_int(int *a, int *b)
 	*b = *a;
 	*a = c;
 }
-
