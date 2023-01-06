@@ -52,7 +52,7 @@ void fun_aux_quicksort(int *array, int low, int high, int size)
  * @low: index holding the values for the 'lower' array
  * @high: Index holding the values for the 'higher' array
  * @size: Size of the array to print
- * @return: int i
+ * Return: int i
  */
 int fun_partition_lomuto(int *array, int low, int high, int size)
 {
