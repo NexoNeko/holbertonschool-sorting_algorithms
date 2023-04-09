@@ -1,2 +1,3 @@
-# holbertonschool-sorting_algorithms
-Sorting algoritm practice holbertonSchool
+# Holbertonschool sorting algorithms
+
+Sorting algoritm exercises
